@@ -88,8 +88,30 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 		<f:selectItem itemValue="3" itemLabel="Python" />
 	</h:selectManyCheckbox>
 	<h:form>
-		<h:commandLink action="Ola" value="Olá Mundo" />
+		<h:commandLink action="Ola" value="Olá Mundo">
+			<h:graphicImage library="images" name="picon.png" width="385px" height="303px" />
+			<h:outputText value="Voltar" />
+		</h:commandLink>
 	</h:form>
 	
+	<h:panelGrid columns="2">
+		<f:facet name="header">
+			<h:outputText value="Dados do Cadastro" />
+		</f:facet>
+		<h:outputText value="Nome:" />
+		<h:inputText size="20" />
+		
+		<h:outputText value="Email:" />
+		<h:panelGroup>
+			<h:inputText size="40" />
+			<h:commandButton value="Validar" />
+		</h:panelGroup>
+		
+		<h:outputText value="Senha:" />
+		<h:inputSecret size="20" />
+		
+		<h:outputText />
+		<h:commandButton value="Cadastrar" />
+	</h:panelGrid>
 </h:body>
 </html>
