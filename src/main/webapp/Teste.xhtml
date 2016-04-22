@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core"
+xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head>
+	<title>Propriedades comuns</title>
+	
+	<script>
+		function alteraValorCampo(){
+			var campo = document.getElementById('meuForm:meuCampo');
+			campo.value = 'Valor alterado'
+		}
+	</script>
+</h:head>
+<h:body>
+	<h:outputText value="Bem-vindo " />
+	<h:outputText value="Nenodias" style="font-weight:bold" />
+	<br />
+	<h:outputFormat value="Oi {0}! Existem {1} coisas a se fazer.">
+		<f:param value="Neno" />
+		<f:param value="2" />
+	</h:outputFormat>
+	<br />
+	<h:form id="meuForm">
+		<!-- Exemplo imagens -->
+		<h:graphicImage library="images" name="picon.png" width="385px" height="303px" />
+		Nome: <h:inputText id="meuCampo" />
+		<!-- Exemplo Javascript  -->
+		<input type="button" value="Alterar valor" onclick="alteraValorCampo();" />
+	</h:form>
+	<!-- Exemplo Label  -->
+	<h:form id="fmr">
+		<h:outputLabel value="Nome:" for="nomeInput" />
+		<h:inputText id="nomeInput" />
+	</h:form>
+	<br/>
+	<h:outputLabel value="Time de Futebol" for="timeFutebol" />
+	<h:selectOneMenu id="timeFutebol">
+		<f:selectItem itemValue="Corinthians" itemLabel="Vai Curintcha!" />
+		<f:selectItem itemValue="Palmeiras" itemLabel="Porcada" />
+		<f:selectItem itemValue="Santos" itemLabel="Estamos sem torcedores há" />
+		<f:selectItem itemValue="São Paulo" itemLabel="bambis" />
+	</h:selectOneMenu>
+	<br/>
+	<h:outputLabel value="Linguagens" for="linguagensProgramacao" />
+	<h:selectManyMenu id="linguagensProgramacao">
+		<f:selectItem itemValue="Python" />
+		<f:selectItem itemValue="Java" />
+		<f:selectItem itemValue="C#" />
+		<f:selectItem itemValue="C\C++" />
+	</h:selectManyMenu>
+	
+	<h:outputLabel value="Fruta Favorita" for="frutaFavorita" />
+	<h:selectOneListbox id="frutaFavorita">
+		<f:selectItem itemValue="Maçã" />
+		<f:selectItem itemValue="Uva" />
+		<f:selectItem itemValue="Morango" />
+		<f:selectItem itemValue="Pêra" />
+	</h:selectOneListbox>
+	
+	<h:outputLabel value="Carros" for="carrosFavoritos" />
+	<h:selectManyListbox id="carrosFavoritos">
+		<f:selectItem itemValue="Voyage" />
+		<f:selectItem itemValue="Santana" />
+		<f:selectItem itemValue="Celta" />
+		<f:selectItem itemValue="Corsa" />
+	</h:selectManyListbox>
+	
+	<h:selectOneRadio id="sexo1" layout="lineDirection">
+		<f:selectItem itemValue="M" itemLabel="Masculino" />
+		<f:selectItem itemValue="F" itemLabel="Feminino" />
+	</h:selectOneRadio>
+	
+	<hr />
+	
+	<h:selectOneRadio id="sexo" layout="pageDirection">
+		<f:selectItem itemValue="M" itemLabel="Masculino" />
+		<f:selectItem itemValue="F" itemLabel="Feminino" />
+	</h:selectOneRadio>
+	
+	<h:selectBooleanCheckbox id="aceite" value="true" /><h:outputLabel value="Li e aceito os termos e condições" />
+	
+	<h:selectManyCheckbox id="assuntos" >
+		<f:selectItem itemValue="1" itemLabel="Java" />
+		<f:selectItem itemValue="3" itemLabel="Python" />
+	</h:selectManyCheckbox>
+	<h:form>
+		<h:commandLink action="Ola" value="Olá Mundo" />
+	</h:form>
+	
+</h:body>
+</html>
