@@ -4,6 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
     version="2.2">
+	
+	<application>
+		<message-bundle>
+			com.algaworks.resources.Messages
+		</message-bundle>
+	</application>
 
 	<faces-config-extension>
 	<faces-config version="2.2">

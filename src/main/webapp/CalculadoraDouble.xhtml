@@ -8,19 +8,19 @@
 <h:body>
 	<h:form id="frm">
 		<h:messages />
-		<h:inputText id="valorA" size="12" value="#{calculadoraBean.valorA}">
+		<h:inputText size="12" value="#{calculadoraDoubleBean.valorA}">
 			<f:convertNumber minFractionDigits="2" maxFractionDigits="2" locale="pt_BR" />
 		</h:inputText>
 		+
-		<h:inputText id="valorB" size="12" value="#{calculadoraBean.valorB}">
+		<h:inputText size="12" value="#{calculadoraDoubleBean.valorB}">
 			<f:convertNumber minFractionDigits="2" maxFractionDigits="2" locale="pt_BR" />
 		</h:inputText>
 		=
-		<h:outputText value="#{calculadoraBean.resultado}">
+		<h:outputText value="#{calculadoraDoubleBean.resultado}">
 			<f:convertNumber type="currency" locale="pt_BR" />
 		</h:outputText>
 		<br />
-		<h:commandButton value="Somar" action="#{calculadoraBean.somar}" />
+		<h:commandButton value="Somar" action="#{calculadoraDoubleBean.somar}" />
 	</h:form>
 </h:body>
 </html>

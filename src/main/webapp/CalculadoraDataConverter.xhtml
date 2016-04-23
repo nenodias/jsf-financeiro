@@ -8,15 +8,14 @@
 <h:body>
 	<h:form id="frm">
 		<h:messages showDetail="true" showSummary="false" />
-		<h:inputText size="12" value="#{calculadoraDataBean.dataBase}" label="Data base">
-			<f:convertDateTime pattern="dd/MM/yyyy" />
-		</h:inputText>
+		<h:inputText size="12" value="#{calculadoraDataBean.dataBase}" converter="smartDate" />
 		+
 		<h:inputText size="12" value="#{calculadoraDataBean.dias}" converterMessage="Informe um valor para dias que seja válido." />
 		dias =
 		<h:outputText value="#{calculadoraDataBean.resultado}">
 			<f:convertDateTime dateStyle="full" locale="pt_BR" />
 		</h:outputText>
+		
 		<br />
 		<h:commandButton value="Adicionar"
 			action="#{calculadoraDataBean.adicionar}" />
