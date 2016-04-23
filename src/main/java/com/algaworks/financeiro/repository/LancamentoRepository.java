@@ -8,13 +8,13 @@ import javax.persistence.TypedQuery;
 
 import com.algaworks.financeiro.domain.Lancamento;
 
-public class LancamentosRepositry implements Serializable{
+public class LancamentoRepository implements Serializable{
 
 	private static final long serialVersionUID = -8691917533208639313L;
 	
 	private EntityManager manager;
 
-	public LancamentosRepositry(EntityManager manager){
+	public LancamentoRepository(EntityManager manager){
 		this.manager = manager;
 	}
 	
@@ -23,4 +23,9 @@ public class LancamentosRepositry implements Serializable{
 		List<Lancamento> retorno = query.getResultList();
 		return retorno;
 	}
+	
+	public void add(Lancamento lancamento) {
+		this.manager.persist(lancamento);
+	}
+	
 }

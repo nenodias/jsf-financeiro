@@ -47,7 +47,6 @@ public class Pessoa implements Serializable{
 			Pessoa other = (Pessoa)obj;
 			return new EqualsBuilder()
 			.append(id, other.id)
-			.append(nome, other.nome)
 			.isEquals();
 		}
 		return false;
@@ -57,7 +56,6 @@ public class Pessoa implements Serializable{
 	public int hashCode() {
 		return new HashCodeBuilder()
 		.append(id)
-		.append(nome)
 		.toHashCode()
 		;
 	}

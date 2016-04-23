@@ -1,4 +1,4 @@
-package com.algaworks.financeiro.repository;
+package com.algaworks.financeiro.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 import javax.persistence.EntityManager;
 
 import com.algaworks.financeiro.domain.Lancamento;
+import com.algaworks.financeiro.repository.LancamentoRepository;
 import com.algaworks.financeiro.util.JPAUtil;
 
 @ManagedBean
@@ -20,7 +21,7 @@ public class ConsultaLancamentosBean implements Serializable{
 	
 	public void consultar(){
 		EntityManager manager = JPAUtil.getEntityManager();
-		LancamentosRepositry repository = new LancamentosRepositry(manager);
+		LancamentoRepository repository = new LancamentoRepository(manager);
 		this.lancamentos = repository.findAll();
 		manager.close();
 	}
