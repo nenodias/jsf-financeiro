@@ -50,7 +50,7 @@ public class CriaLancamentos {
 		lancamento3.setDescricao("Treinamento da equipe");
 		lancamento3.setPessoa(fornecedor);
 		lancamento3.setDataVencimento(dataVencimento2.getTime());
-		lancamento3.setValor(new BigDecimal(68_000));
+		lancamento3.setValor(new BigDecimal(68_000.50));
 		lancamento3.setTipo(TipoLancamento.DESPESA);
 		
 		manager.persist(cliente);

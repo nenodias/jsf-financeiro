@@ -6,7 +6,6 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import com.algaworks.financeiro.domain.Lancamento;
 import com.algaworks.financeiro.util.JPAUtil;
@@ -21,8 +20,8 @@ public class ConsultaLancamentosBean implements Serializable{
 	
 	public void consultar(){
 		EntityManager manager = JPAUtil.getEntityManager();
-		TypedQuery<Lancamento> query = manager.createQuery("FROM Lancamento", Lancamento.class);
-		this.lancamentos = query.getResultList();
+		LancamentosRepositry repository = new LancamentosRepositry(manager);
+		this.lancamentos = repository.findAll();
 		manager.close();
 	}
 
