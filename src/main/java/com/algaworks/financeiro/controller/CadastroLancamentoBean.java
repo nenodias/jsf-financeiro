@@ -27,7 +27,7 @@ public class CadastroLancamentoBean implements Serializable{
 	
 	private List<Pessoa> pessoas;
 	
-	public void initialize(){
+	public CadastroLancamentoBean(){
 		EntityManager manager = JPAUtil.getEntityManager();
 		try{
 			PessoaRepository pessoaRepository = new PessoaRepository(manager);
@@ -78,4 +78,5 @@ public class CadastroLancamentoBean implements Serializable{
 	public TipoLancamento[] getTiposLancamentos(){
 		return TipoLancamento.values();
 	}
+	
 }

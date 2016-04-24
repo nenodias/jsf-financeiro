@@ -19,9 +19,11 @@ public class PessoaConverter implements Converter {
 		Pessoa retorno = null;
 		EntityManager manager = JPAUtil.getEntityManager();
 		try {
-			if (value != null && !"".equals(value)) {
+			if (value != null && !"".equals(value) && !value.equals("null")) {
 				PessoaRepository repository = new PessoaRepository(manager);
 				retorno = repository.findById(new Long(value));
+			}else{
+				retorno = null;
 			}
 		} finally {
 			manager.close();

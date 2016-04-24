@@ -3,10 +3,15 @@
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-	<f:metadata>
-		<f:viewAction action="#{cadastroLancamentoBean.initialize}" />
-	</f:metadata>
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	>
+<!--
+Método chamado na hora de renderizar a tela 	
+<f:metadata>
+	<f:viewAction action="#{cadastroLancamentoBean.initialize}" />
+</f:metadata>
+-->
 	<ui:define name="titulo">Cadastro de lançamento</ui:define>
 	<ui:define name="corpo">
 		<h1>Cadastro de lançamento</h1>
@@ -20,9 +25,9 @@
 						var="tipoLancamento" itemValue="#{tipoLancamento}" />
 				</h:selectOneRadio>
 				<h:outputLabel value="Pessoa" />
-				<h:selectOneMenu value="#{cadastroLancamentoBean.lancamento.pessoa}" label="Pessoa" validator="pessoaValidator">
-					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
-					<f:selectItems value="#{cadastroLancamentoBean.pessoas}" var="pessoa" itemValue="#{pessoa.id}" itemLabel="#{pessoa.nome}" />
+				<h:selectOneMenu id="pessoa" value="#{cadastroLancamentoBean.lancamento.pessoa}" validator="pessoaValidator">
+					<f:selectItem itemLabel="Selecione" itemValue="#{null}" noSelectionOption="true" />
+					<f:selectItems value="#{cadastroLancamentoBean.pessoas}" var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
 				</h:selectOneMenu>
 				<h:outputLabel value="Descrição" />
 				<h:inputText size="60"

@@ -13,7 +13,7 @@ public class PessoaValidator implements Validator {
 	public void validate(FacesContext context, UIComponent component,
 			Object value) throws ValidatorException {
 		if (value == null) {
-			FacesMessage facesMessage = new FacesMessage( FacesMessage.SEVERITY_ERROR, "Data inválida.", "A data informada não é um dia útil.");
+			FacesMessage facesMessage = new FacesMessage( FacesMessage.SEVERITY_ERROR, "Pessoa inválida.", "Pessoa não informada");
 			throw new ValidatorException(facesMessage);
 		}
 	}
