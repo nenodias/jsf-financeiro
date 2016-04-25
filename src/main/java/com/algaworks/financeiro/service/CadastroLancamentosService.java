@@ -3,14 +3,12 @@ package com.algaworks.financeiro.service;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
 import com.algaworks.financeiro.domain.Lancamento;
 import com.algaworks.financeiro.repository.LancamentoRepository;
 import com.algaworks.financeiro.util.Transactional;
 
-@ManagedBean
 @javax.faces.view.ViewScoped
 public class CadastroLancamentosService implements Serializable {
 
