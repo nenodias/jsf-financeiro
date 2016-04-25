@@ -1,4 +1,4 @@
-package com.algaworks.financeiro.service;
+package com.algaworks.financeiro.controller;
 
 import java.io.Serializable;
 import java.util.List;

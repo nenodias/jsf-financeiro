@@ -10,7 +10,7 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 		<properties>
 			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:sqlite::memmory" 
 				/> -->
-			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:/home/nenodias/banco.db" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:sqlite:${user.dir}/banco.db" />
 			<property name="javax.persistence.jdbc.user" value="" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC" />

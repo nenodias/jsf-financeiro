@@ -63,7 +63,7 @@ public class CriaLancamentos {
 		
 		tx.commit();
 		manager.close();
-		
+		factory.close();
 	}
 	
 }
