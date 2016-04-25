@@ -3,6 +3,7 @@ package com.algaworks.financeiro.repository;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -12,12 +13,9 @@ public class PessoaRepository implements Serializable{
 
 	private static final long serialVersionUID = 8323918551617639584L;
 	
+	@Inject
 	private EntityManager manager;
 
-	public PessoaRepository(EntityManager manager){
-		this.manager = manager;
-	}
-	
 	public Pessoa findById(Long id) {
 		return manager.find(Pessoa.class, id);
 	}

@@ -4,17 +4,19 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import com.algaworks.financeiro.domain.Lancamento;
 import com.algaworks.financeiro.domain.Pessoa;
 import com.algaworks.financeiro.domain.TipoLancamento;
-import com.algaworks.financeiro.util.JPAUtil;
 
 public class CriaLancamentos {
 
 	public static void main(String[] args) {
-		EntityManager manager = JPAUtil.getEntityManager();
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("FinanceiroPU");
+		EntityManager manager = factory.createEntityManager();
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		

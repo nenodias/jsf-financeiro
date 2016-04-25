@@ -4,27 +4,26 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
 
 import com.algaworks.financeiro.domain.Lancamento;
 import com.algaworks.financeiro.repository.LancamentoRepository;
+import com.algaworks.financeiro.util.Transactional;
 
 @ManagedBean
-@ViewScoped
+@javax.faces.view.ViewScoped
 public class CadastroLancamentosService implements Serializable {
 
 	private static final long serialVersionUID = -4397272654697343855L;
 
-	private LancamentoRepository repository;
+	@Inject
+	private LancamentoRepository lancamentoRepository;
 
-	public CadastroLancamentosService(LancamentoRepository repository) {
-		this.repository = repository;
-	}
-
+	@Transactional
 	public void save(Lancamento entitade) throws NegocioException {
 		if (entitade.getDataPagamento() != null && entitade.getDataPagamento().after(new Date())) {
 			throw new NegocioException("Data de pagamento não pode ser uma data futura.");
 		}
-		this.repository.add(entitade);
+		this.lancamentoRepository.add(entitade);
 	}
 }

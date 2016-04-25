@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 public @interface DecimalPositivo {
 
 	@OverridesAttribute(constraint = DecimalMin.class, name = "message")
-	String[] message() default "{com.algaworks.NumeroDecimal.message}";
+	String message() default "{com.algaworks.NumeroDecimal.message}";
 	
 	Class<?>[] groups() default {};
 	Class<? extends Payload> [] payload() default {};

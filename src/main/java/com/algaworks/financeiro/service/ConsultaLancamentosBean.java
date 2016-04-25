@@ -3,15 +3,14 @@ package com.algaworks.financeiro.service;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.persistence.EntityManager;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import com.algaworks.financeiro.domain.Lancamento;
 import com.algaworks.financeiro.repository.LancamentoRepository;
-import com.algaworks.financeiro.util.JPAUtil;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class ConsultaLancamentosBean implements Serializable{
 
@@ -19,11 +18,11 @@ public class ConsultaLancamentosBean implements Serializable{
 	
 	private List<Lancamento> lancamentos;
 	
+	@Inject
+	private LancamentoRepository lancamentosRepository; 
+	
 	public void consultar(){
-		EntityManager manager = JPAUtil.getEntityManager();
-		LancamentoRepository repository = new LancamentoRepository(manager);
-		this.lancamentos = repository.findAll();
-		manager.close();
+		this.lancamentos = lancamentosRepository.findAll();
 	}
 
 	public List<Lancamento> getLancamentos() {
