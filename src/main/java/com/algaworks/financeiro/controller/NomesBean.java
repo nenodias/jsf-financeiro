@@ -7,6 +7,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.component.html.HtmlInputText;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ValueChangeEvent;
 
 
 @ManagedBean
@@ -18,6 +20,15 @@ public class NomesBean {
 	
 	private HtmlInputText inputNome;
 	private HtmlCommandButton botaoAdicionar;
+	
+	public void nomeModificado(ValueChangeEvent event){
+		System.out.println("Valor antigo: " + event.getOldValue());
+		System.out.println("Novo valor: " + event.getNewValue());
+	}
+	
+	public void registrarLog(ActionEvent event){
+		System.out.println("Novo nome...");
+	}
 
 	public String adicionar(){
 		this.nomes.add(nome);

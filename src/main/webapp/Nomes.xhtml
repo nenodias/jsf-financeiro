@@ -10,9 +10,9 @@ xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 </h:head>
 <h:body>
 	<h:form>
-		Nome: <h:inputText value="#{nomesBean.nome}" binding="#{nomesBean.inputNome}" />
+		Nome: <h:inputText value="#{nomesBean.nome}" binding="#{nomesBean.inputNome}" valueChangeListener="#{nomesBean.nomeModificado}" />
 		<br />
-		<h:commandButton value="Adicionar" binding="#{nomesBean.botaoAdicionar}" action="#{nomesBean.adicionar}" />
+		<h:commandButton value="Adicionar" binding="#{nomesBean.botaoAdicionar}" action="#{nomesBean.adicionar}" actionListener="#{nomesBean.registrarLog}" />
 		<br />
 		<ol>
 			<ui:repeat var="nome" value="#{nomesBean.nomes}">

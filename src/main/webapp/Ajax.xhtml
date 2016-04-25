@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Teste Ajax</title>
+</h:head>
+<h:body>
+	<h:form id="frm">
+		<h:inputText value="#{meuBeanAjax.nome}">
+			<!--  
+			Por padrão o evento do inputText é o change
+			change, keyup, mouseover, focus, blur, click, etc
+			<f:ajax render="ola" />
+			
+			render - Recebe o id dos componentes que serão atualizados com o ajax
+			-->
+			<f:ajax event="keyup" render="ola contador" listener="#{meuBeanAjax.transformar}" />
+		</h:inputText>
+		<br />
+		<h:outputText value="Olá #{meuBeanAjax.nome}" id="ola" />
+		<br/>
+		<h:outputText id="contador" value="#{meuBeanAjax.quantidadeCaracteres} caracteres digitados" />
+	</h:form>
+</h:body>
+</html>
