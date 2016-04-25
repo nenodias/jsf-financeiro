@@ -5,12 +5,15 @@ xmlns:f="http://xmlns.jcp.org/jsf/core"
 xmlns:composite="http://xmlns.jcp.org/jsf/composite"
 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 >
+<!-- Carregando o bundle de mensagens -->
+<f:loadBundle var="msg"  basename="com.algaworks.resources.Messages" />
 <h:head>
 	<title>Lista de Nomes</title>
 </h:head>
 <h:body>
 	<h:form>
-		Nome: <h:inputText value="#{nomesBean.nome}" binding="#{nomesBean.inputNome}" valueChangeListener="#{nomesBean.nomeModificado}" />
+		<!-- Usando o msg que carrega as mensagens do projeto -->
+		<h:outputText value="#{msg['com.algaworks.nomes.label']}" />: <h:inputText value="#{nomesBean.nome}" binding="#{nomesBean.inputNome}" valueChangeListener="#{nomesBean.nomeModificado}" />
 		<br />
 		<h:commandButton value="Adicionar" binding="#{nomesBean.botaoAdicionar}" action="#{nomesBean.adicionar}" actionListener="#{nomesBean.registrarLog}" />
 		<br />
