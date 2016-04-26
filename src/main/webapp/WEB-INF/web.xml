@@ -17,6 +17,12 @@
   	<param-value>Development</param-value>
   </context-param>
   
+  <!-- Configurando tema do bootstrap  -->
+  <context-param>
+  	<param-name>primefaces.THEME</param-name>
+  	<param-value>bootstrap</param-value>
+  </context-param>
+  
   <welcome-file-list>
   	<welcome-file>Ola.xhtml</welcome-file>
   </welcome-file-list>
