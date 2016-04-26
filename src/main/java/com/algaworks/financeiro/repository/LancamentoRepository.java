@@ -26,4 +26,22 @@ public class LancamentoRepository implements Serializable{
 		this.manager.persist(lancamento);
 	}
 	
+	public void save(Lancamento lancamento) {
+		this.manager.merge(lancamento);
+	}
+	
+	public void remove(Lancamento lancamento){
+		this.manager.remove(lancamento);
+	}
+	
+	public Lancamento findById(Long id) {
+		return this.manager.find(Lancamento.class, id);
+	}
+	
+	public List<String> contains(String descricao) {
+		TypedQuery<String> query = manager.createQuery("select distinct descricao from Lancamento where upper(descricao) like upper(:descricao)", String.class);
+		query.setParameter("descricao", "%" + descricao + "%");
+		return query.getResultList();
+	}
+	
 }

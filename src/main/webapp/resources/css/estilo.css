@@ -1,5 +1,13 @@
 @charset "utf-8";
 
+.ajax-status {
+	position: fixed;
+	top: 85px;
+	right: 10px;
+	width: 35px;
+	height: 35px
+}
+
 body {
 	font-size: 12px;
 	font-family: Arial, Helvetica, sans-serif;

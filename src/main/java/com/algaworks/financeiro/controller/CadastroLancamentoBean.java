@@ -35,6 +35,9 @@ public class CadastroLancamentoBean implements Serializable{
 	
 	public void initialize(){
 		this.pessoas = pessoaRepository.findAll();
+		if (this.lancamento == null) {
+			this.lancamento = new Lancamento();
+		}
 	}
 	
 	public void save(){
@@ -54,6 +57,10 @@ public class CadastroLancamentoBean implements Serializable{
 		if (this.lancamento.getDataPagamento() == null) {
 			this.lancamento.setDataPagamento(this.lancamento.getDataVencimento());
 		}
+	}
+	
+	public List<String> pesquisarDescricoes(String descricao) {
+		return cadastroLancamentoService.contains(descricao);
 	}
 
 	public Lancamento getLancamento() {
