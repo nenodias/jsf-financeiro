@@ -21,6 +21,9 @@
 	</p:ajaxStatus>
 	<header>
 		<h:graphicImage library="images" name="logo.png" />
+		<div style="float: right; margin-right: 20px; margin-top: 8px">
+			Olá #{usuario.nome}!
+		</div>
 	</header>
 	<h:form>
 		<p:menubar style="margin-top: -20px; margin-bottom: 20px">
@@ -33,7 +36,7 @@
 				<p:menuitem value="Lançamentos" action="/Consulta?faces-redirect=true" />
 			</p:submenu>
 			<p:submenu label="Sistema">
-				<p:menuitem value="Sair" />
+				<p:menuitem value="Sair" action="#{loginBean.logout}" />
 			</p:submenu>
 		</p:menubar>
 	</h:form>

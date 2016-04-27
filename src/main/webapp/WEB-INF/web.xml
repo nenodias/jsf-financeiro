@@ -24,7 +24,7 @@
   </context-param>
   
   <welcome-file-list>
-  	<welcome-file>Ola.xhtml</welcome-file>
+  	<welcome-file>Consulta.xhtml</welcome-file>
   </welcome-file-list>
   
   <!-- Configurando contexto de CDI -->
