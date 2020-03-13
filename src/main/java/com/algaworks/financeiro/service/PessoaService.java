@@ -18,6 +18,11 @@ public class PessoaService implements Serializable {
 
 	@Transactional
 	public void save(Pessoa entitade) throws NegocioException {
-		this.pessoaRepository.add(entitade);
+		this.pessoaRepository.save(entitade);
 	}
+        
+        public void delete(Pessoa entidade) throws NegocioException {
+            entidade = pessoaRepository.findById(entidade.getId());
+            pessoaRepository.remove(entidade);
+        }
 }

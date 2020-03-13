@@ -18,22 +18,21 @@ public class PessoaConverter implements Converter {
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component,
 			String value) {
-		Pessoa retorno = null;
-		if (value != null && !"".equals(value) && !value.equals("null")) {
-			retorno = pessoaRepository.findById(new Long(value));
-		}else{
-			retorno = null;
-		}
-		return retorno;
+                Pessoa retorno = null;
+                if (value != null && !"".equals(value)) {
+                    retorno = pessoaRepository.findById(new Long(value));
+                }
+                return retorno;
 	}
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component,
 			Object value) {
-		if (value != null) {
-			return ((Pessoa) value).getId().toString();
-		}
-		return null;
+            if (value != null) {
+                Pessoa pessoa = (Pessoa) value;
+                return pessoa.getId() == null ? null : pessoa.getId().toString();
+            }
+            return null;
 	}
 
 }

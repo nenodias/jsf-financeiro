@@ -29,5 +29,13 @@ public class PessoaRepository implements Serializable{
 	public void add(Pessoa entidade) {
 		this.manager.persist(entidade);
 	}
+        
+        public void save(Pessoa entidade) {
+            this.manager.merge(entidade);
+        }
+        
+        public void remove(Pessoa entidade) {
+            this.manager.remove(entidade);
+        }
 	
 }

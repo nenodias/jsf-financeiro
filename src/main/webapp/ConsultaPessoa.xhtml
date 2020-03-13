@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<f:metadata>
+		<f:viewAction action="#{consultaPessoaBean.consultar}" />
+	</f:metadata>
+	<ui:define name="titulo">Consulta de Pessoas</ui:define>
+	<ui:define name="corpo">
+		<h1>Consulta de pessoas</h1>
+		<h:form id="frm">
+			<p:messages showDetail="false" showSummary="true" autoUpdate="true" />
+                        <p:dataTable value="#{consultaPessoaBean.pessoas}"
+				var="pessoa" border="1" cellspacing="0" cellpadding="2"
+				paginator="true" rows="5" paginatorPosition="bottom">
+				<p:column headerText="Nome" sortBy="#{pessoa.nome}">
+					<h:outputText value="#{pessoa.nome}" />
+				</p:column>
+				<p:column>
+					<p:button icon="ui-icon-pencil" title="Editar" outcome="/Mensagem">
+						<f:param name="id" value="#{pessoa.id}" />
+					</p:button>
+                                    <p:commandButton icon="ui-icon-trash" title="Excluir" process="@this" update="@form" action="#{consultaPessoaBean.excluir}">
+                                            <f:setPropertyActionListener value="#{pessoa}" target="#{consultaPessoaBean.pessoaSelecionada}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

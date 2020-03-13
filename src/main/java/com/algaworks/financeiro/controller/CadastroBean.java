@@ -20,29 +20,33 @@ public class CadastroBean implements Serializable{
 
 	@Inject
 	private PessoaService pessoaService;
-
-	private String nome;
+        
+        private Pessoa pessoa = new Pessoa();
+        
+        public void initialize() {
+        if (this.pessoa == null) {
+            this.pessoa = new Pessoa();
+        }
+    }
 	
 	public void cadastrar(){
 		FacesContext context = FacesContext.getCurrentInstance();
-		Pessoa pessoa = new Pessoa();
-		pessoa.setNome(this.nome);
 		FacesMessage mensagem = null;
 		try{
 			pessoaService.save(pessoa);
-			mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cadastro efetuado.", "Cliente "+ this.nome + " cadastrado com sucesso.");
+			mensagem = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cadastro efetuado.", "Cliente "+ pessoa.getNome() + " cadastrado com sucesso.");
 		}catch(NegocioException ex){
-			mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro.", "Cliente "+ this.nome + " não foi cadastrado.");
+			mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro.", "Cliente "+ pessoa.getNome() + " não foi cadastrado.");
 		}
 		context.addMessage(null, mensagem);
 	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+        
+        public Pessoa getPessoa(){
+            return this.pessoa;
+        }
+        
+        public void setPessoa(Pessoa pessoa){
+            this.pessoa = pessoa;
+        }
 	
 }
