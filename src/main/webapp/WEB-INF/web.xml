@@ -20,7 +20,7 @@
   <!-- Configurando tema do bootstrap  -->
   <context-param>
   	<param-name>primefaces.THEME</param-name>
-  	<param-value>bootstrap</param-value>
+	   	<param-value>aristo</param-value>
   </context-param>
   
   <welcome-file-list>
